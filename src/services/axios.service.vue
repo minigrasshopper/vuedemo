@@ -63,6 +63,16 @@ class AxiosService {
       data: type == 'post' ? params : {}
     })
   }
+
+  promise(arr, cb){
+    axios.all(arr).then(axios.spread(() => {
+      // 两个请求现在都执行完成
+      // arr的长度未知，用arguments对象解决
+      console.log(arguments.length);
+      console.log(arguments[0]);
+      // cb(arguments);
+    }))
+  }
 }
 
 let axiosService = new AxiosService();

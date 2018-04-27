@@ -7,20 +7,16 @@
 <script>
 import axiosService from "@/services/axios.service"
 import orderService from '@/services/order.service'
-import axios from 'axios'
+
 export default {
   data() {
     return {};
   },
   mounted() {
-    this.getCate().then(()=>{
-      console.log('1244');
-    });
-    return 
-    axios.all([this.getCate(), this.getList()]).then(axios.spread(function (pre, next) {
-      // 两个请求现在都执行完成
-      console.log(pre);
-    }))
+    axiosService.promise([this.getCate(), this.getList()], (arr) => {
+      console.log(arr[0]);
+      console.log(arr[1]);
+    })
   },
   updated() {},
   methods: {
