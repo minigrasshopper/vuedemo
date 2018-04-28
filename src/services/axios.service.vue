@@ -63,10 +63,6 @@ class AxiosService {
       data: type == 'post' ? params : {}
     })
   }
-
-  promise(arr, cb){
-    return axios.all(arr);
-  }
 }
 
 let axiosService = new AxiosService();

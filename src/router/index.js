@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import LoginPage from '@/pages/login';
 import HomePage from '@/pages/home';
-import testPage from '@/pages/test';
+import TestPage from '@/pages/test';
 import GoodsListPage from '@/pages/good-list';
 import GoodsDetailPage from '@/pages/good-detail';
 import OrderCreatePage from '@/pages/order-create';
@@ -19,7 +19,7 @@ const router = new Router({
     {  // 测试用的路由
       path: '/test',
       name: 'test',
-      component: testPage
+      component: TestPage
     },
     {
       path: '/',  // 默认进入路由[写在第一个]
