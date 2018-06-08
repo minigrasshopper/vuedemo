@@ -63,6 +63,15 @@ class AxiosService {
       data: type == 'post' ? params : {}
     })
   }
+  
+  promise(arr, cb){
+    axios.all(arr).then(axios.spread((...args) => {
+      // 两个请求现在都执行完成
+      // arr的长度未知，用arguments对象解决 [箭头函数不会在其内部暴露出arguments对象，需要用ES6运算符...展开]
+      console.log(args);
+      cb(args);
+    }))
+  }
 }
 
 let axiosService = new AxiosService();
